@@ -1,4 +1,6 @@
+import 'package:componentsTemplateFlutter/src/modules/AnimatedModule.dart';
 import 'package:componentsTemplateFlutter/src/modules/CardsModule.dart';
+import 'package:componentsTemplateFlutter/src/modules/InputsModule.dart';
 import 'package:flutter/material.dart';
 
 import 'package:componentsTemplateFlutter/src/modules/HomeModule.dart';
@@ -12,6 +14,8 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
     "alert": (context) => ALertsModule(),
     "avatar": (context) => AvatarsModule(),
     "card": (context) => CardsModule(),
+    "animated": (context) => AnimatedModule(),
+    "inputs": (context) => InputsModule(),
   };
 }
 

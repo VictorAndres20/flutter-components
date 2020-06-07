@@ -1,4 +1,4 @@
-import 'package:componentsTemplateFlutter/src/containers/AppBars/TransparentAppBar.dart';
+import 'package:componentsTemplateFlutter/src/containers/AppBars/avatar_appbar.dart';
 import 'package:flutter/material.dart';
 
 class AvatarsModule extends StatelessWidget{
@@ -8,7 +8,7 @@ class AvatarsModule extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: TransparentAppBar(titleAppBar: title,).build(context),
+      appBar: buildAvatarAppBar(title: "Avatars"),
       body: Center(child: Text("Avatars")),
     );
   }
