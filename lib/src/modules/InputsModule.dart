@@ -1,4 +1,6 @@
 import 'package:componentsTemplateFlutter/src/containers/AppBars/avatar_appbar.dart';
+import 'package:componentsTemplateFlutter/src/containers/Inputs/date_picker.dart';
+import 'package:componentsTemplateFlutter/src/containers/Inputs/dropdown.dart';
 import 'package:componentsTemplateFlutter/src/containers/Inputs/round_input.dart';
 import 'package:flutter/material.dart';
 
@@ -12,8 +14,18 @@ class InputsModule extends StatefulWidget{
 class _InputsModuleState extends State<InputsModule>{
 
   final String title = "Inputs";
+  final List<String> items = <String>[
+    'Opción 1',
+    'Opción 2',
+    'Opción 3',
+    'Opción 4'
+  ];
 
   String dataUser = '';
+  String datePicked = '';
+  String optionSelected = 'Opción 1';
+
+  TextEditingController inputDateController = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +41,28 @@ class _InputsModuleState extends State<InputsModule>{
               onChangeFunc: (data) {
                 setState(() {
                   dataUser = data;
+                });
+              }
+            ),
+            Divider(),
+            buildDatePicker(
+              controller: inputDateController,
+              context: context,
+              label: "Fecha",
+              onTapFunc: (picked){
+                setState(() {
+                  this.datePicked = picked;
+                  this.inputDateController.text = this.datePicked;
+                });
+              }
+            ),
+            Divider(),
+            buildDopdown(
+              items: items,
+              value: optionSelected,
+              onChange: (selected) {
+                setState(() {
+                  optionSelected = selected;
                 });
               }
             ),
