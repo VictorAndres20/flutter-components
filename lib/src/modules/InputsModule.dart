@@ -1,4 +1,6 @@
 import 'package:componentsTemplateFlutter/src/containers/AppBars/avatar_appbar.dart';
+import 'package:componentsTemplateFlutter/src/containers/Inputs/checkbox.dart';
+import 'package:componentsTemplateFlutter/src/containers/Inputs/checkbox_tile.dart';
 import 'package:componentsTemplateFlutter/src/containers/Inputs/date_picker.dart';
 import 'package:componentsTemplateFlutter/src/containers/Inputs/dropdown.dart';
 import 'package:componentsTemplateFlutter/src/containers/Inputs/round_input.dart';
@@ -24,6 +26,9 @@ class _InputsModuleState extends State<InputsModule>{
   String dataUser = '';
   String datePicked = '';
   String optionSelected = 'Opción 1';
+
+  bool checkbox = true;
+  bool checkboxTile = true;
 
   TextEditingController inputDateController = new TextEditingController();
 
@@ -67,9 +72,29 @@ class _InputsModuleState extends State<InputsModule>{
               }
             ),
             Divider(),
+            buildCheckbox(
+              value: checkbox,
+              onChangeFunc: (data){
+                setState(() {
+                  checkbox = data;
+                });
+              }
+            ),
+            Divider(),
+            buildCheckboxTile(
+              title: "Bien o no?",
+              value: checkboxTile,
+              onChangeFunc: (data){
+                setState(() {
+                  checkboxTile = data;
+                });
+              }
+            ),
+            Divider(),
             ListTile(
               title: Text(dataUser),
-            )
+            ),
+            
           ],
         )
       ),

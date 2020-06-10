@@ -1,6 +1,8 @@
 import 'package:componentsTemplateFlutter/src/modules/AnimatedModule.dart';
 import 'package:componentsTemplateFlutter/src/modules/CardsModule.dart';
 import 'package:componentsTemplateFlutter/src/modules/InputsModule.dart';
+import 'package:componentsTemplateFlutter/src/modules/ListViewModule.dart';
+import 'package:componentsTemplateFlutter/src/modules/SlidersModule.dart';
 import 'package:flutter/material.dart';
 
 import 'package:componentsTemplateFlutter/src/modules/HomeModule.dart';
@@ -16,6 +18,8 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
     "card": (context) => CardsModule(),
     "animated": (context) => AnimatedModule(),
     "inputs": (context) => InputsModule(),
+    "sliders": (context) => SlidersModule(),
+    "listview": (context) => ListViewModule()
   };
 }
 

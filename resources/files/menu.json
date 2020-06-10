@@ -17,13 +17,23 @@
         },
         {
             "route":"animated",
-            "icon":"folder_open",
+            "icon":"timer_3",
             "text":"Animaciones"
         },
         {
             "route":"inputs",
-            "icon":"folder_open",
+            "icon":"input",
             "text":"Inputs"
+        },
+        {
+            "route":"sliders",
+            "icon":"add_to_home_screen",
+            "text":"Sliders"
+        },
+        {
+            "route":"listview",
+            "icon":"list",
+            "text":"ListView Builder - Inifite Scroll"
         }
     ]
 }
