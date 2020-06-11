@@ -34,6 +34,11 @@
             "route":"listview",
             "icon":"list",
             "text":"ListView Builder - Inifite Scroll"
+        },
+        {
+            "route":"moviesapp",
+            "icon":"movie_filter",
+            "text":"Aplicación películas"
         }
     ]
 }

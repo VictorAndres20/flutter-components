@@ -2,6 +2,7 @@ import 'package:componentsTemplateFlutter/src/modules/AnimatedModule.dart';
 import 'package:componentsTemplateFlutter/src/modules/CardsModule.dart';
 import 'package:componentsTemplateFlutter/src/modules/InputsModule.dart';
 import 'package:componentsTemplateFlutter/src/modules/ListViewModule.dart';
+import 'package:componentsTemplateFlutter/src/modules/MoviesModule.dart';
 import 'package:componentsTemplateFlutter/src/modules/SlidersModule.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,8 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
     "animated": (context) => AnimatedModule(),
     "inputs": (context) => InputsModule(),
     "sliders": (context) => SlidersModule(),
-    "listview": (context) => ListViewModule()
+    "listview": (context) => ListViewModule(),
+    "moviesapp": (context) => MoviesModule()
   };
 }
 

@@ -7,7 +7,8 @@ final iconsData = <String, IconData>{
   'add_to_home_screen' : Icons.add_to_home_screen,
   'input': Icons.input,
   'timer_3': Icons.timer_3,
-  'list': Icons.list
+  'list': Icons.list,
+  'movie_filter': Icons.movie_filter
 };
 
 Icon getIconFromStr(String iconKey) => Icon(iconsData[iconKey], color: Colors.blue,);
