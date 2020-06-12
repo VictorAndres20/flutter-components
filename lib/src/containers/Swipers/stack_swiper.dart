@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
 final double percentWidthItemSwiper = 0.7;
-final double percentHeightItemSwiper = 0.5;
+final double percentHeightItemSwiper = 0.6;
 
 Widget buildStackSwiper({@required BuildContext context, @required List<Movie> list}){
   final screenSize = MediaQuery.of(context).size;
