@@ -1,3 +1,4 @@
+import 'package:componentsTemplateFlutter/src/_models/movie_model.dart';
 import 'package:componentsTemplateFlutter/src/_services/movie_service.dart';
 import 'package:componentsTemplateFlutter/src/containers/AppBars/search_app_bar.dart';
 import 'package:componentsTemplateFlutter/src/containers/Swipers/stack_swiper.dart';
@@ -15,8 +16,12 @@ class _MoviesModuleState extends State<MoviesModule>{
 
   final MovieService movieService = MovieService();
 
+  List<Movie> populars = List();
+  int page = 1;
+
   void initState(){
     super.initState();
+    movieService.getPopular(page);
   }
 
   @override
@@ -35,7 +40,7 @@ class _MoviesModuleState extends State<MoviesModule>{
           crossAxisAlignment:CrossAxisAlignment.start,
           children: <Widget>[
             FutureBuilder(
-              future: movieService.getNowPlaying(), //Methos that return Future
+              future: movieService.getNowPlaying(), //Method that return Future
               //initialData: CircularProgressIndicator(),
               builder: (BuildContext context, AsyncSnapshot<List> snapshot){
                 if(snapshot.hasData) {
@@ -55,12 +60,19 @@ class _MoviesModuleState extends State<MoviesModule>{
               width: 300,
               child: Text("Top Películas", style: TextStyle(fontSize: 20.0), textAlign: TextAlign.start),
             ),
-            FutureBuilder(
-              future: movieService.getPopular(), //Methos that return Future
+            StreamBuilder(
+              stream: movieService.popularsStream, //STREAM that return List<Movie>
               //initialData: CircularProgressIndicator(),
-              builder: (BuildContext context, AsyncSnapshot<List> snapshot){
+              builder: (BuildContext context, AsyncSnapshot<List<Movie>> snapshot){
                 if(snapshot.hasData) {
-                  return buildSwiperCard(list: snapshot.data);
+                  populars.addAll(snapshot.data);
+                  page++;
+                  print("LENGTH: ${populars.length}");
+                  print("PAGE: $page");
+                  return buildSwiperCard(list: snapshot.data, maxScrollEventFunc: (){
+                    movieService.getPopular(page);
+                    //print("LLAMAR A FUNCIÓN");
+                  });
                 } else {
                   return Container(
                     height: 100.0,

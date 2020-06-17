@@ -7,8 +7,6 @@ class GenericService{
   Future<Map<String, dynamic>> findMany({bool https,@required String host,@required String path,@required Map<String, String> queryParameters}) async {
     final Uri urlBuilded = this.buildUri(https: https, host: host, path: path, queryParameters: queryParameters);
     final res = await this.fetchGet(url: urlBuilded);
-    print(res.statusCode); //STATUS CODE
-    //print(res.headers);
     return json.decode(res.body); //Get as Map
   }
 

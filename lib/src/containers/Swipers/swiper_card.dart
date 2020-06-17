@@ -1,12 +1,20 @@
 import 'package:componentsTemplateFlutter/src/_models/movie_model.dart';
 import 'package:flutter/material.dart';
 
-Widget buildSwiperCard({@required List<Movie> list}) {
+Widget buildSwiperCard({@required List<Movie> list, @required Function maxScrollEventFunc}) {
+
+  PageController pageController = PageController(initialPage: 1, viewportFraction: 0.3);
+
+  pageController.addListener(() {
+    if(pageController.position.pixels >= pageController.position.maxScrollExtent - 200){
+      maxScrollEventFunc();
+    }
+  });
 
   return Container(
     height: 220,
     child: PageView(
-      controller: PageController(initialPage: 1, viewportFraction: 0.3),
+      controller: pageController,
       children: buildCards(200,list),
     ),
   );
